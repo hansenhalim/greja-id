@@ -100,6 +100,7 @@ return [
 
     'middleware' => [
         'tenant',
+        'universal',
         'web',
         HandleInertiaRequests::class,
         DispatchServingNovaEvent::class,
@@ -108,6 +109,7 @@ return [
 
     'api_middleware' => [
         'tenant',
+        'universal',
         'nova',
         Authenticate::class,
         Authorize::class,
