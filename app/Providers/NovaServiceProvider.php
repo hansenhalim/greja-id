@@ -17,6 +17,14 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         parent::boot();
 
+        Nova::userTimezone(fn () => 'Asia/Jakarta');
+
+        Nova::serving(function () {
+            \App\Models\Tenant::creating(function (\App\Models\Tenant $tenant) {
+                $tenant->ready = false;
+            });
+        });
+
         Nova::footer(fn () => null);
     }
 
@@ -56,9 +64,15 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     protected function dashboards()
     {
-        return [
-            new \App\Nova\Dashboards\Main,
-        ];
+        if (tenancy()->initialized) {
+            return [
+                new \App\Nova\Tenant\Dashboards\Main,
+            ];
+        } else {
+            return [
+                new \App\Nova\Central\Dashboards\Main,
+            ];
+        }
     }
 
     /**
@@ -69,6 +83,21 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function tools()
     {
         return [];
+    }
+
+    protected function resources()
+    {
+        if (tenancy()->initialized) {
+            Nova::resources([
+                //
+            ]);
+        } else {
+            Nova::resources([
+                \App\Nova\Central\Domain::class,
+                \App\Nova\Central\Tenant::class,
+                \App\Nova\Central\User::class,
+            ]);
+        }
     }
 
     /**
