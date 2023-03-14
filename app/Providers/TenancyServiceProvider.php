@@ -99,6 +99,10 @@ class TenancyServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        if ($this->app->environment('production')) {
+            \Stancl\Tenancy\Resolvers\DomainTenantResolver::$shouldCache = true;
+        }
+
         $this->bootEvents();
         $this->mapRoutes();
 
