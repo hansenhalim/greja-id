@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use App\Exceptions\NoPrimaryDomainException;
-use Stancl\Tenancy\Database\Models\Tenant as BaseTenant;
 use Stancl\Tenancy\Database\Concerns\HasDomains;
+use Stancl\Tenancy\Database\Models\Tenant as BaseTenant;
 
 class Tenant extends BaseTenant
 {
@@ -30,7 +30,7 @@ class Tenant extends BaseTenant
 
     public function route($route, $parameters = [], $absolute = true)
     {
-        if (!$this->primary_domain) {
+        if (! $this->primary_domain) {
             throw new NoPrimaryDomainException;
         }
 

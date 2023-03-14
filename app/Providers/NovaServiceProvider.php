@@ -36,8 +36,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function routes()
     {
         Nova::routes()
-            ->withAuthenticationRoutes()
-            ->withPasswordResetRoutes()
+            ->withAuthenticationRoutes(['tenant', 'nova'])
             ->register();
     }
 
@@ -51,9 +50,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function gate()
     {
         Gate::define('viewNova', function ($user) {
-            return in_array($user->email, [
-                //
-            ]);
+            return true;
         });
     }
 

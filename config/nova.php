@@ -99,6 +99,7 @@ return [
     */
 
     'middleware' => [
+        'tenant',
         'web',
         HandleInertiaRequests::class,
         DispatchServingNovaEvent::class,
@@ -106,6 +107,7 @@ return [
     ],
 
     'api_middleware' => [
+        'tenant',
         'nova',
         Authenticate::class,
         Authorize::class,
@@ -148,7 +150,7 @@ return [
     |
     */
 
-    'currency' => 'USD',
+    'currency' => 'IDR',
 
     /*
     |--------------------------------------------------------------------------
