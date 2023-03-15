@@ -11,7 +11,7 @@ class Member extends Model
 
     protected $casts = [
         'date_of_birth' => 'date',
-        'joined_at' => 'timestamp',
+        'joined_at' => 'datetime',
         'active' => 'boolean',
     ];
 }
