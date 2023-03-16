@@ -4,11 +4,11 @@ namespace App\Models;
 
 use App\Exceptions\NoPrimaryDomainException;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Stancl\Tenancy\Contracts\Tenant as ContractsTenant;
+use Stancl\Tenancy\Contracts\Tenant as TenantContract;
 use Stancl\Tenancy\Database\Concerns\HasDomains;
 use Stancl\Tenancy\Database\Models\Tenant as BaseTenant;
 
-class Tenant extends BaseTenant implements ContractsTenant
+class Tenant extends BaseTenant implements TenantContract
 {
     use HasDomains, HasFactory;
 
@@ -32,7 +32,7 @@ class Tenant extends BaseTenant implements ContractsTenant
 
     public function route($route, $parameters = [], $absolute = true)
     {
-        if (! $this->primary_domain) {
+        if (!$this->primary_domain) {
             throw new NoPrimaryDomainException;
         }
 
