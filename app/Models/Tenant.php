@@ -3,12 +3,14 @@
 namespace App\Models;
 
 use App\Exceptions\NoPrimaryDomainException;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Stancl\Tenancy\Contracts\Tenant as ContractsTenant;
 use Stancl\Tenancy\Database\Concerns\HasDomains;
 use Stancl\Tenancy\Database\Models\Tenant as BaseTenant;
 
-class Tenant extends BaseTenant
+class Tenant extends BaseTenant implements ContractsTenant
 {
-    use HasDomains;
+    use HasDomains, HasFactory;
 
     public static function getCustomColumns(): array
     {

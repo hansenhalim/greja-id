@@ -10,10 +10,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
 {
     /**
      * Bootstrap any application services.
-     *
-     * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         parent::boot();
 
@@ -30,10 +28,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
 
     /**
      * Register the Nova routes.
-     *
-     * @return void
      */
-    protected function routes()
+    protected function routes(): void
     {
         Nova::routes()
             ->withAuthenticationRoutes(['tenant', 'universal', 'nova'])
@@ -44,10 +40,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      * Register the Nova gate.
      *
      * This gate determines who can access Nova in non-local environments.
-     *
-     * @return void
      */
-    protected function gate()
+    protected function gate(): void
     {
         Gate::define('viewNova', function ($user) {
             return true;
@@ -56,10 +50,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
 
     /**
      * Get the dashboards that should be listed in the Nova sidebar.
-     *
-     * @return array
      */
-    protected function dashboards()
+    protected function dashboards(): array
     {
         if (tenancy()->initialized) {
             return [
@@ -74,17 +66,15 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
 
     /**
      * Get the tools that should be listed in the Nova sidebar.
-     *
-     * @return array
      */
-    public function tools()
+    public function tools(): array
     {
         return [
             \Vyuldashev\NovaPermission\NovaPermissionTool::make(),
         ];
     }
 
-    protected function resources()
+    protected function resources(): void
     {
         if (tenancy()->initialized) {
             Nova::resources([
@@ -101,10 +91,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
 
     /**
      * Register any application services.
-     *
-     * @return void
      */
-    public function register()
+    public function register(): void
     {
         //
     }
