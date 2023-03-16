@@ -72,7 +72,9 @@ return [
     |
     */
 
-    'guard' => env('NOVA_GUARD', null),
+    // Central app auth guard
+    // This gets changed to 'web' in NovaAuthGuardBootstrapper on tenant requests
+    'guard' => 'admin',
 
     /*
     |--------------------------------------------------------------------------
