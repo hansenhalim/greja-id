@@ -70,7 +70,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function tools(): array
     {
         return [
-            \Vyuldashev\NovaPermission\NovaPermissionTool::make(),
+            \Vyuldashev\NovaPermission\NovaPermissionTool::make()
+                ->rolePolicy(\App\Policies\RolePolicy::class)
+                ->permissionPolicy(\App\Policies\PermissionPolicy::class),
         ];
     }
 
