@@ -88,6 +88,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 \App\Nova\Central\Admin::class,
                 \App\Nova\Central\Domain::class,
                 \App\Nova\Central\Tenant::class,
+                \App\Nova\Central\User::class,
             ]);
         }
     }

@@ -2,30 +2,32 @@
 
 namespace App\Policies;
 
+use App\Enums\Permission;
+
 class RolePolicy
 {
     public function viewAny($user): bool
     {
-        return $user->can('viewAny roles');
+        return $user->can(Permission::VIEW_ANY_ROLES->value);
     }
 
     public function view($user): bool
     {
-        return $user->can('view roles');
+        return $user->can(Permission::VIEW_ROLES->value);
     }
 
     public function create($user): bool
     {
-        return $user->can('create roles');
+        return $user->can(Permission::CREATE_ROLES->value);
     }
 
     public function update($user): bool
     {
-        return $user->can('update roles');
+        return $user->can(Permission::UPDATE_ROLES->value);
     }
 
     public function delete($user): bool
     {
-        return $user->can('delete roles');
+        return $user->can(Permission::DELETE_ROLES->value);
     }
 }
