@@ -32,7 +32,7 @@ class Tenant extends BaseTenant implements TenantContract
 
     public function route($route, $parameters = [], $absolute = true)
     {
-        if (!$this->primary_domain) {
+        if (! $this->primary_domain) {
             throw new NoPrimaryDomainException;
         }
 
