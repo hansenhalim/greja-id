@@ -79,12 +79,13 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         if (tenancy()->initialized) {
             Nova::resources([
                 \App\Nova\Tenant\Member::class,
+                \App\Nova\Tenant\User::class,
             ]);
         } else {
             Nova::resources([
+                \App\Nova\Central\Admin::class,
                 \App\Nova\Central\Domain::class,
                 \App\Nova\Central\Tenant::class,
-                \App\Nova\Central\User::class,
             ]);
         }
     }

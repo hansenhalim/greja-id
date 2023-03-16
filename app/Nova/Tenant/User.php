@@ -2,31 +2,30 @@
 
 namespace App\Nova\Tenant;
 
-use App\Enums\Gender;
 use App\Nova\Resource;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\Date;
+use Illuminate\Validation\Rules;
+use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Member extends Resource
+class User extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\Member>
+     * @var class-string<\App\Models\User>
      */
-    public static $model = \App\Models\Member::class;
+    public static $model = \App\Models\User::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -34,7 +33,7 @@ class Member extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'id', 'name', 'email',
     ];
 
     /**
@@ -46,31 +45,23 @@ class Member extends Resource
     {
         return [
             ID::make()->sortable(),
+
+            Gravatar::make()->maxWidth(50),
+
             Text::make('Name')
                 ->sortable()
-                ->required(),
-            Select::make('Gender')
+                ->rules('required', 'max:255'),
+
+            Text::make('Email')
                 ->sortable()
-                ->options(array_column(Gender::cases(), 'name', 'value'))
-                ->displayUsingLabels()
-                ->required(),
-            Text::make('Phone')
-                ->sortable()
-                ->required(),
-            Text::make('Email')->required(),
-            Text::make('Address')->hideFromIndex()
-                ->required(),
-            Date::make('Date of Birth')
-                ->sortable()
-                ->displayUsing(fn ($value) => $value->format('j F Y'))
-                ->required(),
-            Text::make('Description')->hideFromIndex()
-                ->required(),
-            Date::make('Joined At')
-                ->displayUsing(fn ($value) => $value->format('d-M-Y'))
-                ->required(),
-            Boolean::make('Active')->default(true)
-                ->required(),
+                ->rules('required', 'email', 'max:254')
+                ->creationRules('unique:users,email')
+                ->updateRules('unique:users,email,{{resourceId}}'),
+
+            Password::make('Password')
+                ->onlyOnForms()
+                ->creationRules('required', Rules\Password::defaults())
+                ->updateRules('nullable', Rules\Password::defaults()),
         ];
     }
 
@@ -112,10 +103,5 @@ class Member extends Resource
     public function actions(NovaRequest $request)
     {
         return [];
-    }
-
-    public static function softDeletes()
-    {
-        return false;
     }
 }
