@@ -15,4 +15,7 @@ enum Permission: string
     case CREATE_PERMISSIONS = 'create permissions';
     case UPDATE_PERMISSIONS = 'update permissions';
     case DELETE_PERMISSIONS = 'delete permissions';
+
+    case VIEW_TELESCOPE = 'view telescope';
+    case VIEW_HORIZON = 'view horizon';
 }
