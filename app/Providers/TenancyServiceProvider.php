@@ -29,11 +29,11 @@ class TenancyServiceProvider extends ServiceProvider
                     // Jobs\MigrateDatabase::class,
                     // Jobs\SeedDatabase::class,
 
-                    \App\Jobs\CreateTenantAdmin::class,
-
                     // Your own jobs to prepare the tenant.
                     // Provision API keys, create S3 buckets, anything you want!
 
+                    \App\Jobs\CreateS3Bucket::class,
+                    \App\Jobs\CreateTenantAdmin::class,
                 ])->send(function (Events\TenantCreated $event) {
                     return $event->tenant;
                 })->shouldBeQueued(true), // `false` by default, but you probably want to make this `true` for production.
