@@ -52,4 +52,14 @@ abstract class Resource extends NovaResource
     {
         return parent::relatableQuery($request, $query);
     }
+
+    /**
+     * The pagination per-page options configured for this resource.
+     *
+     * @return array
+     */
+    public static function perPageOptions()
+    {
+        return [10, 25, 50];
+    }
 }
