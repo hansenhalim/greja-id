@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use Illuminate\Support\Facades\Route;
-use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +16,17 @@ use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 |
 */
 
-Route::middleware(['tenant', PreventAccessFromCentralDomains::class])->group(function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
+Route::group([
+    'as' => 'tenant.',
+    'middleware' => [
+        'tenant',
+        \Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains::class,
+    ],
+], function () {
+    Route::redirect('/', '/nova')->name('home');
+
+    Route::get(
+        '/impersonate/{token}',
+        fn ($token) => \Stancl\Tenancy\Features\UserImpersonation::makeResponse($token)
+    )->name('impersonate');
 });

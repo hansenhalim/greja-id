@@ -3,6 +3,7 @@
 namespace App\Nova\Central\Actions;
 
 use App\Models\Tenant;
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Collection;
@@ -24,8 +25,10 @@ class ImpersonateTenant extends Action
         /** @var Tenant $tenant */
         $tenant = $models[0];
 
+        $userId = User::where('email', $tenant->email)->value('id');
+
         return Action::redirect(
-            $tenant->impersonationUrl(1)
+            $tenant->impersonationUrl($userId)
         );
     }
 
