@@ -39,7 +39,7 @@ class Domain extends BaseDomain
 
     public static function domainFromSubdomain(string $subdomain): string
     {
-        return $subdomain . '.' . config('tenancy.central_domains')[0];
+        return $subdomain.'.'.config('tenancy.central_domains')[0];
     }
 
     public function makePrimary(): self
@@ -66,7 +66,7 @@ class Domain extends BaseDomain
 
     public function isSubdomain(): bool
     {
-        return !Str::contains($this->domain, '.');
+        return ! Str::contains($this->domain, '.');
     }
 
     /**
