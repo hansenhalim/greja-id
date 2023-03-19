@@ -14,34 +14,18 @@ class CreateTenantAdmin implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    /** @var Tenant */
-    protected $tenant;
-
-    /**
-     * Create a new job instance.
-     *
-     * @return void
-     */
-    public function __construct(Tenant $tenant)
+    public function __construct(protected Tenant $tenant)
     {
-        $this->tenant = $tenant;
     }
 
-    /**
-     * Execute the job.
-     *
-     * @return void
-     */
-    public function handle()
+    public function handle(): void
     {
         $this->tenant->run(function ($tenant) {
             User::create(
                 $tenant->only(['name', 'email', 'password'])
             );
 
-            $tenant->update([
-                'ready' => true,
-            ]);
+            $tenant->update(['ready' => true]);
         });
     }
 }

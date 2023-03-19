@@ -11,7 +11,7 @@ class TenantSeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 0; $i < 2; $i++) {
+        for ($i = 0; $i < 1; $i++) {
             $tenants[] = \App\Models\Tenant::factory()->create([
                 'email' => 't'.$i.'@example.com',
                 'name' => 'Tenant '.$i,
