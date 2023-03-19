@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('email');
             $table->text('address');
             $table->date('date_of_birth');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamp('joined_at');
             $table->boolean('active');
             $table->timestamps();
