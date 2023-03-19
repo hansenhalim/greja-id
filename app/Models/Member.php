@@ -11,9 +11,10 @@ class Member extends Model
 {
     use HasFactory, SoftDeletes, BelongsToTenant;
 
+    protected $guarded = [];
+
     protected $casts = [
         'date_of_birth' => 'date',
         'joined_at' => 'datetime',
-        'active' => 'boolean',
     ];
 }

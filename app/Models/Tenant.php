@@ -12,6 +12,8 @@ class Tenant extends BaseTenant implements TenantContract
 {
     use HasDomains, HasFactory;
 
+    protected $guarded = [];
+
     public static function getCustomColumns(): array
     {
         return [
@@ -32,7 +34,7 @@ class Tenant extends BaseTenant implements TenantContract
 
     public function route($route, $parameters = [], $absolute = true)
     {
-        if (! $this->primary_domain) {
+        if (!$this->primary_domain) {
             throw new NoPrimaryDomainException;
         }
 
