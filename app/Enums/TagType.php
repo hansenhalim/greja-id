@@ -9,4 +9,5 @@ enum TagType: string
     case TITHE_TYPE = 'tithe type';
     case INVENTORY_TYPE = 'inventory type';
     case INVENTORY_STATUS = 'inventory status';
+    case FORM_TYPE = 'form type';
 }

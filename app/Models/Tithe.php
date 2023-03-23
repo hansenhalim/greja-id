@@ -12,6 +12,8 @@ class Tithe extends Model
 {
     use HasTags, HasFactory, SoftDeletes, BelongsToTenant;
 
+    protected $guarded = [];
+
     public function churchService()
     {
         return $this->belongsTo(ChurchService::class);

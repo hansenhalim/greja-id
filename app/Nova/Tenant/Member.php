@@ -15,10 +15,12 @@ class Member extends Resource
 {
     public static $model = \App\Models\Member::class;
 
-    public static $title = 'id';
+    public static $title = 'name';
 
     public static $search = [
-        'id',
+        'name',
+        'phone',
+        'email',
     ];
 
     public function fields(NovaRequest $request)

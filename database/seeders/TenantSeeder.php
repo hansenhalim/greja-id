@@ -86,6 +86,10 @@ class TenantSeeder extends Seeder
 
             Tag::findOrCreate('Rusak', TagType::INVENTORY_STATUS->value);
             Tag::findOrCreate('Tersedia', TagType::INVENTORY_STATUS->value);
+
+            Tag::findOrCreate('Volunteer', TagType::FORM_TYPE->value);
+            Tag::findOrCreate('Baptism', TagType::FORM_TYPE->value);
+            Tag::findOrCreate('Child Dedication', TagType::FORM_TYPE->value);
         });
     }
 }
