@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Spatie\TagsField\Tags;
@@ -44,6 +45,13 @@ class ChurchService extends Resource
                 ->sortable()
                 ->required(),
             Text::make('Description')
+                ->hideFromIndex(),
+            Number::make('Attendance Amount')
+                ->min(0)
+                ->required(),
+            Text::make('Additional Note')
+                ->hideFromIndex(),
+            Text::make('Berita Acara')
                 ->hideFromIndex(),
             DateTime::make('Started At')
                 ->displayUsing(fn ($value) => $value->timezone('Asia/Jakarta')->format('D M y G:i'))

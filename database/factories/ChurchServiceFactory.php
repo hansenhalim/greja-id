@@ -21,6 +21,10 @@ class ChurchServiceFactory extends Factory
             'church_location_id' => ChurchLocation::factory(),
             'name' => fake()->city(),
             'description' => fake()->paragraph(),
+            'attendance_amount' => fake()->numberBetween(10, 10000),
+            'additional_note' => fake()->paragraph(),
+            'berita_acara' => fake()->paragraph(),
+            'active' => fake()->boolean(),
             'started_at' => now()->subHours(2),
             'ended_at' => now(),
         ];
