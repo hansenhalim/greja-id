@@ -39,7 +39,8 @@ class ChurchLocation extends Resource
                 ->required(),
             Text::make('Address')
                 ->required(),
-            Boolean::make('Active')->default(true)
+            Boolean::make('Active')
+                ->default(true)
                 ->required(),
             HasMany::make('Church Services'),
         ];

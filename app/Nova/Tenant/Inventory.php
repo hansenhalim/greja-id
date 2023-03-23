@@ -4,63 +4,61 @@ namespace App\Nova\Tenant;
 
 use App\Enums\TagType;
 use App\Nova\Resource;
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\DateTime;
-use Laravel\Nova\Fields\HasMany;
+use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\Currency;
+use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Spatie\TagsField\Tags;
 
-class ChurchService extends Resource
+class Inventory extends Resource
 {
-    public static $group = 'Church';
-
-    public static $model = \App\Models\ChurchService::class;
+    public static $model = \App\Models\Inventory::class;
 
     public static $title = 'name';
 
     public static $search = [
         'name',
+        'code',
     ];
-
-    public static function label()
-    {
-        return 'Services';
-    }
 
     public function fields(NovaRequest $request)
     {
         return [
             ID::make()->sortable(),
-            BelongsTo::make('Location', 'churchLocation', 'App\Nova\Tenant\ChurchLocation')
-                ->sortable(),
-            Text::make('Name')
-                ->sortable()
-                ->required(),
-            Tags::make('Service Type')
-                ->type(TagType::CHURCH_SERVICE->value)
+            Tags::make('Inventory Type')
+                ->type(TagType::INVENTORY_TYPE->value)
                 ->single()
                 ->sortable()
                 ->required(),
-            Textarea::make('Description')
+            Tags::make('Status')
+                ->type(TagType::INVENTORY_STATUS->value)
+                ->single()
+                ->sortable()
                 ->required(),
-            Number::make('Attendance Amount')
-                ->min(0)
+            Text::make('Name')
+                ->sortable()
+                ->required(),
+            Text::make('Code')
+                ->sortable()
+                ->required(),
+            Textarea::make('Specification')
+                ->required(),
+            Currency::make('Price')
+                ->currency('IDR')
+                ->sortable()
                 ->required(),
             Textarea::make('Additional Note')
                 ->required(),
-            Textarea::make('Berita Acara')
+            Boolean::make('Active')
+                ->default(true)
                 ->required(),
-            DateTime::make('Started At')
-                ->displayUsing(fn ($value) => $value->timezone('Asia/Jakarta')->format('D M y G:i'))
+            Date::make('Inbound At')
+                ->displayUsing(fn ($value) => $value->format('j F Y'))
                 ->required(),
-            DateTime::make('Ended At')
-                ->displayUsing(fn ($value) => $value->timezone('Asia/Jakarta')->format('D M y G:i'))
-                ->required(),
-            HasMany::make('Tithes'),
         ];
     }
 

@@ -36,19 +36,23 @@ class Member extends Resource
             Text::make('Phone')
                 ->sortable()
                 ->required(),
-            Text::make('Email')->required(),
-            Text::make('Address')->hideFromIndex()
+            Text::make('Email')
+                ->required(),
+            Text::make('Address')
+                ->hideFromIndex()
                 ->required(),
             Date::make('Date of Birth')
                 ->sortable()
                 ->displayUsing(fn ($value) => $value->format('j F Y'))
                 ->required(),
-            Text::make('Description')->hideFromIndex()
+            Text::make('Description')
+                ->hideFromIndex()
                 ->required(),
             Date::make('Joined At')
                 ->displayUsing(fn ($value) => $value->timezone('Asia/Jakarta')->format('d-M-Y'))
                 ->required(),
-            Boolean::make('Active')->default(true)
+            Boolean::make('Active')
+                ->default(true)
                 ->required(),
         ];
     }

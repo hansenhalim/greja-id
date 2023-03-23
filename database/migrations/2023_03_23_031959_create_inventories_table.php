@@ -11,18 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('church_services', function (Blueprint $table) {
+        Schema::create('inventories', function (Blueprint $table) {
             $table->id();
             $table->foreignId('tenant_id')->constrained();
-            $table->foreignId('church_location_id')->constrained();
             $table->string('name');
-            $table->text('description');
-            $table->unsignedInteger('attendance_amount');
+            $table->string('code');
+            $table->text('specification');
+            $table->unsignedBigInteger('price');
             $table->text('additional_note');
-            $table->text('berita_acara');
             $table->boolean('active');
-            $table->timestamp('started_at');
-            $table->timestamp('ended_at');
+            $table->timestamp('inbound_at');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -33,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('church_services');
+        Schema::dropIfExists('inventories');
     }
 };

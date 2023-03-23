@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\ChurchService;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,8 @@ class TitheFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'church_service_id' => ChurchService::factory(),
+            'amount' => fake()->numberBetween(0, 10000000),
         ];
     }
 }
