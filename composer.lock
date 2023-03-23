@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f9f84fced58534a022c9ef438b4d9956",
+    "content-hash": "58d09b2403177dafab80dbda58beea0f",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -3900,6 +3900,57 @@
             "time": "2023-03-05T19:49:14+00:00"
         },
         {
+            "name": "nova-kit/nova-packages-tool",
+            "version": "v1.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nova-kit/nova-packages-tool.git",
+                "reference": "1e6317f9f370ae8e778f147092b8e288171e94e2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nova-kit/nova-packages-tool/zipball/1e6317f9f370ae8e778f147092b8e288171e94e2",
+                "reference": "1e6317f9f370ae8e778f147092b8e288171e94e2",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/nova": ">=4.22.0 <4.23.0",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.24 || ^7.0 || ^8.0",
+                "phpunit/phpunit": "^9.6"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NovaKit\\NovaPackagesTool\\LaravelServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NovaKit\\NovaPackagesTool\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mior Muhammad Zaki",
+                    "email": "crynobone@gmail.com"
+                }
+            ],
+            "description": "Tool for Laravel Nova Packages Development",
+            "support": {
+                "source": "https://github.com/nova-kit/nova-packages-tool/tree/v1.7.1"
+            },
+            "time": "2023-02-23T23:53:41+00:00"
+        },
+        {
             "name": "nunomaduro/termwind",
             "version": "v1.15.1",
             "source": {
@@ -5699,6 +5750,72 @@
                 }
             ],
             "time": "2023-01-14T20:57:45+00:00"
+        },
+        {
+            "name": "spatie/nova-tags-field",
+            "version": "4.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/nova-tags-field.git",
+                "reference": "c84473c626d70d78c02ee6253a9ff73765fb8ef4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/nova-tags-field/zipball/c84473c626d70d78c02ee6253a9ff73765fb8ef4",
+                "reference": "c84473c626d70d78c02ee6253a9ff73765fb8ef4",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/nova": "^4.13",
+                "nova-kit/nova-packages-tool": "^1.2",
+                "php": "^8.0",
+                "spatie/laravel-tags": "^4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.4",
+                "orchestra/testbench": "^6.24|^7.0",
+                "phpunit/phpunit": "^9.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\TagsField\\TagsFieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\TagsField\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A tags field for Nova apps",
+            "homepage": "https://github.com/spatie/nova-tags-field",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "support": {
+                "source": "https://github.com/spatie/nova-tags-field/tree/4.0.5"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                }
+            ],
+            "time": "2022-11-15T08:02:12+00:00"
         },
         {
             "name": "spatie/once",

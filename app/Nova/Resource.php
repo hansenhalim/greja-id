@@ -62,4 +62,14 @@ abstract class Resource extends NovaResource
     {
         return [10, 25, 50];
     }
+
+    /**
+     * This should hide the filter while keeping the soft-deletes functional.
+     *
+     * @return array
+     */
+    public static function softDeletes()
+    {
+        return false;
+    }
 }

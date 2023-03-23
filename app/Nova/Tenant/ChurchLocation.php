@@ -2,24 +2,29 @@
 
 namespace App\Nova\Tenant;
 
-use App\Enums\Gender;
 use App\Nova\Resource;
 use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Member extends Resource
+class ChurchLocation extends Resource
 {
-    public static $model = \App\Models\Member::class;
+    public static $group = 'Church';
 
-    public static $title = 'id';
+    public static $model = \App\Models\ChurchLocation::class;
+
+    public static $title = 'name';
 
     public static $search = [
-        'id',
+        'name',
+        'phone',
     ];
+
+    public static function label()
+    {
+        return 'Locations';
+    }
 
     public function fields(NovaRequest $request)
     {
@@ -28,25 +33,10 @@ class Member extends Resource
             Text::make('Name')
                 ->sortable()
                 ->required(),
-            Select::make('Gender')
-                ->sortable()
-                ->options(array_column(Gender::cases(), 'name', 'value'))
-                ->displayUsing(fn ($name) => ucfirst($name))
-                ->required(),
             Text::make('Phone')
                 ->sortable()
                 ->required(),
-            Text::make('Email')->required(),
-            Text::make('Address')->hideFromIndex()
-                ->required(),
-            Date::make('Date of Birth')
-                ->sortable()
-                ->displayUsing(fn ($value) => $value->format('j F Y'))
-                ->required(),
-            Text::make('Description')->hideFromIndex()
-                ->required(),
-            Date::make('Joined At')
-                ->displayUsing(fn ($value) => $value->timezone('Asia/Jakarta')->format('d-M-Y'))
+            Text::make('Address')
                 ->required(),
             Boolean::make('Active')->default(true)
                 ->required(),
