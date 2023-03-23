@@ -23,4 +23,9 @@ class ChurchService extends Model
     {
         return $this->belongsTo(ChurchLocation::class);
     }
+
+    public function tithes()
+    {
+        return $this->hasMany(Tithe::class);
+    }
 }

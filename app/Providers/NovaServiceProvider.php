@@ -85,6 +85,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 \App\Nova\Tenant\ChurchLocation::class,
                 \App\Nova\Tenant\ChurchService::class,
                 \App\Nova\Tenant\Tag::class,
+                \App\Nova\Tenant\Tithe::class,
             ]);
         } else {
             Nova::resources([

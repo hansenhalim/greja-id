@@ -6,6 +6,7 @@ use App\Enums\TagType;
 use App\Nova\Resource;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -17,10 +18,10 @@ class ChurchService extends Resource
 
     public static $model = \App\Models\ChurchService::class;
 
-    public static $title = 'id';
+    public static $title = 'name';
 
     public static $search = [
-        'id',
+        'name',
     ];
 
     public static function label()
@@ -50,6 +51,7 @@ class ChurchService extends Resource
             DateTime::make('Ended At')
                 ->displayUsing(fn ($value) => $value->timezone('Asia/Jakarta')->format('D M y G:i'))
                 ->required(),
+            HasMany::make('Tithes'),
         ];
     }
 
