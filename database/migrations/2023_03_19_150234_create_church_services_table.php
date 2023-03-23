@@ -17,6 +17,10 @@ return new class extends Migration
             $table->foreignId('church_location_id')->constrained();
             $table->string('name');
             $table->text('description')->nullable();
+            $table->unsignedInteger('attendance_amount');
+            $table->text('additional_note');
+            $table->text('berita_acara');
+            $table->boolean('active');
             $table->timestamp('started_at');
             $table->timestamp('ended_at');
             $table->timestamps();
