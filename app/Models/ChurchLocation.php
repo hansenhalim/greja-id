@@ -12,4 +12,9 @@ class ChurchLocation extends Model
     use HasFactory, SoftDeletes, BelongsToTenant;
 
     protected $guarded = [];
+
+    public function churchServices()
+    {
+        return $this->hasMany(ChurchService::class);
+    }
 }
