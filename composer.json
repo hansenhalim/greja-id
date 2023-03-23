@@ -24,7 +24,8 @@
         "spatie/nova-tags-field": "^4.0",
         "stancl/tenancy": "^3.7",
         "staudenmeir/belongs-to-through": "^2.5",
-        "vyuldashev/nova-permission": "^3.2"
+        "vyuldashev/nova-permission": "^3.2",
+        "whitecube/nova-flexible-content": "^1.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.13",
