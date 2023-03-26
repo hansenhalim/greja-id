@@ -48,16 +48,16 @@ class Inventory extends Resource
             Textarea::make('Specification')
                 ->required(),
             Currency::make('Price')
-                ->currency('IDR')
                 ->sortable()
                 ->required(),
             Textarea::make('Additional Note')
                 ->required(),
+            Date::make('Inbound At')
+                ->sortable()
+                ->displayUsing(fn ($value) => $value->format('j F Y'))
+                ->required(),
             Boolean::make('Active')
                 ->default(true)
-                ->required(),
-            Date::make('Inbound At')
-                ->displayUsing(fn ($value) => $value->format('j F Y'))
                 ->required(),
         ];
     }

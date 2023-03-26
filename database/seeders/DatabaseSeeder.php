@@ -18,5 +18,13 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             TenantSeeder::class,
         ]);
+
+        \App\Models\Tenant::first()
+            ->run(fn () => $this->call([
+                TagSeeder::class,
+                MemberSeeder::class,
+                ChurchServiceSeeder::class,
+                InventorySeeder::class,
+            ]));
     }
 }

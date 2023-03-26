@@ -36,7 +36,6 @@ class Tithe extends Resource
                 ->sortable()
                 ->required(),
             Currency::make('Amount')
-                ->currency('IDR')
                 ->sortable()
                 ->required(),
         ];

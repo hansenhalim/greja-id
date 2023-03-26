@@ -27,6 +27,7 @@ class MemberFactory extends Factory
             'description' => fake()->paragraph(),
             'joined_at' => fake()->dateTimeThisMonth(),
             'active' => fake()->boolean(),
+            'created_at' => fake()->dateTimeThisYear(),
         ];
     }
 }
