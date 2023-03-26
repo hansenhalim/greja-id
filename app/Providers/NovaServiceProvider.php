@@ -80,14 +80,14 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         if (tenancy()->initialized) {
             Nova::resources([
-                \App\Nova\Tenant\Member::class,
-                \App\Nova\Tenant\User::class,
                 \App\Nova\Tenant\ChurchLocation::class,
                 \App\Nova\Tenant\ChurchService::class,
-                \App\Nova\Tenant\Tag::class,
-                \App\Nova\Tenant\Tithe::class,
-                \App\Nova\Tenant\Inventory::class,
                 \App\Nova\Tenant\Form::class,
+                \App\Nova\Tenant\Inventory::class,
+                \App\Nova\Tenant\Member::class,
+                \App\Nova\Tenant\Tag::class,
+                \App\Nova\Tenant\User::class,
+                \App\Nova\Tenant\Tithe::class,
             ]);
         } else {
             Nova::resources([
