@@ -16,7 +16,7 @@ class MembersPerMonth extends Trend
      */
     public function calculate(NovaRequest $request)
     {
-        return $this->countByMonths($request, Member::class);
+        return $this->countByMonths($request, Member::active());
     }
 
     /**

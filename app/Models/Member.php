@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -17,4 +18,9 @@ class Member extends Model
         'date_of_birth' => 'date',
         'joined_at' => 'datetime',
     ];
+
+    public function scopeActive(Builder $query): void
+    {
+        $query->where('active', 1);
+    }
 }

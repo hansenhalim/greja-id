@@ -17,8 +17,9 @@ class UpcomingMembersBirthday extends Table
      */
     public function calculate(NovaRequest $request)
     {
-        $members = Member::orderByRaw('DAYOFYEAR(date_of_birth)')
+        $members = Member::active()
             ->whereRaw('DAYOFYEAR(date_of_birth) >= DAYOFYEAR(CURDATE())')
+            ->orderByRaw('DAYOFYEAR(date_of_birth)')
             ->limit(3)
             ->get();
 

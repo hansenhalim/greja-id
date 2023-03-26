@@ -16,7 +16,7 @@ class ActiveMembers extends Value
      */
     public function calculate(NovaRequest $request)
     {
-        return $this->count($request, Member::class);
+        return $this->count($request, Member::active());
     }
 
     /**

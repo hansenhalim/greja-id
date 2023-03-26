@@ -16,7 +16,7 @@ class MembersPerGender extends Partition
      */
     public function calculate(NovaRequest $request)
     {
-        return $this->count($request, Member::class, 'gender')
+        return $this->count($request, Member::active(), 'gender')
             ->label(fn ($value) => ucfirst($value));
     }
 
