@@ -32,9 +32,11 @@ class ChurchLocation extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Name')
+                ->showWhenPeeking()
                 ->sortable()
                 ->required(),
             Text::make('Phone')
+                ->showWhenPeeking()
                 ->sortable()
                 ->required(),
             Text::make('Address')

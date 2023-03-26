@@ -28,6 +28,7 @@ class Member extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Name')
+                ->showWhenPeeking()
                 ->sortable()
                 ->required(),
             Select::make('Gender')
@@ -35,8 +36,10 @@ class Member extends Resource
                 ->displayUsing(fn ($name) => ucfirst($name))
                 ->required(),
             Text::make('Phone')
+                ->showWhenPeeking()
                 ->required(),
             Text::make('Email')
+                ->showWhenPeeking()
                 ->required(),
             Text::make('Address')
                 ->hideFromIndex()
