@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Nova\Metrics;
+namespace App\Nova\Tenant\Metrics;
 
 use App\Models\Member;
 use Laravel\Nova\Http\Requests\NovaRequest;

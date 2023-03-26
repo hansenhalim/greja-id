@@ -2,7 +2,10 @@
 
 namespace App\Nova\Tenant\Dashboards;
 
-use App\Nova\Metrics\ActiveMembers;
+use App\Nova\Tenant\Metrics\ActiveMembers;
+use App\Nova\Tenant\Metrics\MembersPerGender;
+use App\Nova\Tenant\Metrics\MembersPerMonth;
+use App\Nova\Tenant\Metrics\UpcomingMembersBirthday;
 use Laravel\Nova\Dashboards\Main as Dashboard;
 
 class Main extends Dashboard
@@ -16,6 +19,9 @@ class Main extends Dashboard
     {
         return [
             new ActiveMembers,
+            new MembersPerGender,
+            new MembersPerMonth,
+            new UpcomingMembersBirthday,
         ];
     }
 }

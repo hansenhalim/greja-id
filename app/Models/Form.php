@@ -18,6 +18,7 @@ class Form extends Model implements HasMedia
 
     protected $casts = [
         'content' => 'json',
+        'verified_at' => 'datetime',
     ];
 
     public function member()
