@@ -40,14 +40,14 @@ class ChurchService extends Resource
             Text::make('Name')
                 ->sortable()
                 ->required(),
-            Tags::make('Service Type')
+            Tags::make('Type')
                 ->type(TagType::CHURCH_SERVICE->value)
                 ->single()
                 ->sortable()
                 ->required(),
             Textarea::make('Description')
                 ->required(),
-            Number::make('Attendance Amount')
+            Number::make('Attendance', 'attendance_amount')
                 ->min(0)
                 ->required(),
             Textarea::make('Additional Note')

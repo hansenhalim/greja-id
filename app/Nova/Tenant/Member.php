@@ -31,12 +31,10 @@ class Member extends Resource
                 ->sortable()
                 ->required(),
             Select::make('Gender')
-                ->sortable()
                 ->options(array_column(Gender::cases(), 'name', 'value'))
                 ->displayUsing(fn ($name) => ucfirst($name))
                 ->required(),
             Text::make('Phone')
-                ->sortable()
                 ->required(),
             Text::make('Email')
                 ->required(),
@@ -51,6 +49,7 @@ class Member extends Resource
                 ->hideFromIndex()
                 ->required(),
             Date::make('Joined At')
+                ->sortable()
                 ->displayUsing(fn ($value) => $value->timezone('Asia/Jakarta')->format('d-M-Y'))
                 ->required(),
             Boolean::make('Active')

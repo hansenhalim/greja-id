@@ -28,7 +28,7 @@ class Form extends Resource
     {
         return [
             ID::make()->sortable(),
-            Tags::make('Form Type')
+            Tags::make('Type')
                 ->type(TagType::FORM_TYPE->value)
                 ->single()
                 ->sortable()

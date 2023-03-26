@@ -25,6 +25,8 @@ class TagSeeder extends Seeder
         Tag::findOrCreate('Persepuluhan', TagType::TITHE_TYPE->value);
 
         Tag::findOrCreate('Alat Musik', TagType::INVENTORY_TYPE->value);
+        Tag::findOrCreate('Alat Tulis', TagType::INVENTORY_TYPE->value);
+        Tag::findOrCreate('Kendaraan', TagType::INVENTORY_TYPE->value);
 
         Tag::findOrCreate('Rusak', TagType::INVENTORY_STATUS->value);
         Tag::findOrCreate('Tersedia', TagType::INVENTORY_STATUS->value);

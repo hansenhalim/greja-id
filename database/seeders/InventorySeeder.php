@@ -17,8 +17,8 @@ class InventorySeeder extends Seeder
         $inventories = Inventory::factory(10)->create();
 
         foreach ($inventories as $inventory) {
-            $inventory->attachTag('Alat Musik', TagType::INVENTORY_TYPE->value);
-            $inventory->attachTag('Tersedia', TagType::INVENTORY_STATUS->value);
+            $inventory->attachTag(fake()->randomElement(['Alat Musik', 'Alat Tulis', 'Kendaraan']), TagType::INVENTORY_TYPE->value);
+            $inventory->attachTag(fake()->randomElement(['Tersedia', 'Rusak']), TagType::INVENTORY_STATUS->value);
         }
     }
 }

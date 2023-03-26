@@ -29,15 +29,13 @@ class Inventory extends Resource
     {
         return [
             ID::make()->sortable(),
-            Tags::make('Inventory Type')
+            Tags::make('Type')
                 ->type(TagType::INVENTORY_TYPE->value)
                 ->single()
-                ->sortable()
                 ->required(),
             Tags::make('Status')
                 ->type(TagType::INVENTORY_STATUS->value)
                 ->single()
-                ->sortable()
                 ->required(),
             Text::make('Name')
                 ->sortable()
@@ -52,12 +50,12 @@ class Inventory extends Resource
                 ->required(),
             Textarea::make('Additional Note')
                 ->required(),
+            Boolean::make('Active')
+                ->default(true)
+                ->required(),
             Date::make('Inbound At')
                 ->sortable()
                 ->displayUsing(fn ($value) => $value->format('j F Y'))
-                ->required(),
-            Boolean::make('Active')
-                ->default(true)
                 ->required(),
         ];
     }
@@ -69,7 +67,10 @@ class Inventory extends Resource
 
     public function filters(NovaRequest $request)
     {
-        return [];
+        return [
+            new Filters\InventoryStatus,
+            new Filters\InventoryType,
+        ];
     }
 
     public function lenses(NovaRequest $request)
