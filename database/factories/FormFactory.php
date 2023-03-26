@@ -18,8 +18,8 @@ class FormFactory extends Factory
     public function definition(): array
     {
         return [
-            'member_id' => Member::factory(),
-            'content' => [],
+            'member_id' => fake()->randomElement(Member::pluck('id')),
+            'content' => ['title' => fake()->catchPhrase(), 'body' => fake()->paragraph()],
             'active' => fake()->boolean(),
             'verified_at' => now(),
         ];

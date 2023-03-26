@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
                 MemberSeeder::class,
                 ChurchServiceSeeder::class,
                 InventorySeeder::class,
+                FormSeeder::class,
             ]));
     }
 }
