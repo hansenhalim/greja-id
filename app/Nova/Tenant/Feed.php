@@ -66,7 +66,7 @@ class Feed extends Resource
                 ->displayUsing(fn ($name) => ucfirst($name))
                 ->required(),
             Text::make('Youtube Video Id'),
-            Tags::make('Tags')->type(''),
+            Tags::make('Tags')->type(TagType::FEED_TAGS->value),
         ];
     }
 
@@ -89,7 +89,10 @@ class Feed extends Resource
      */
     public function filters(NovaRequest $request)
     {
-        return [];
+        return [
+            new Filters\FeedStatus,
+            new Filters\FeedType,
+        ];
     }
 
     /**
@@ -111,6 +114,9 @@ class Feed extends Resource
      */
     public function actions(NovaRequest $request)
     {
-        return [];
+        return [
+            new Actions\PublishFeed,
+            new Actions\DraftFeed,
+        ];
     }
 }

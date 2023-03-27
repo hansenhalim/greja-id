@@ -38,5 +38,9 @@ class TagSeeder extends Seeder
         Tag::findOrCreate('REVIVE', TagType::FEED_TYPE->value);
         Tag::findOrCreate('Bulletin', TagType::FEED_TYPE->value);
         Tag::findOrCreate('Devotion', TagType::FEED_TYPE->value);
+
+        Tag::findOrCreate('Iman', TagType::FEED_TAGS->value);
+        Tag::findOrCreate('Kasih', TagType::FEED_TAGS->value);
+        Tag::findOrCreate('Pengharapan', TagType::FEED_TAGS->value);
     }
 }

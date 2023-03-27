@@ -53,7 +53,7 @@ class Member extends Resource
                 ->required(),
             Date::make('Joined At')
                 ->sortable()
-                ->displayUsing(fn ($value) => $value->timezone('Asia/Jakarta')->format('d-M-Y'))
+                ->displayUsing(fn ($value) => $value->format('d-M-Y'))
                 ->required(),
             Boolean::make('Active')
                 ->default(true)

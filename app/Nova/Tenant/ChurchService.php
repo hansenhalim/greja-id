@@ -55,10 +55,10 @@ class ChurchService extends Resource
             Textarea::make('Berita Acara')
                 ->required(),
             DateTime::make('Started At')
-                ->displayUsing(fn ($value) => $value->timezone('Asia/Jakarta')->format('D M y G:i'))
+                ->displayUsing(fn ($value) => $value->format('D M y G:i'))
                 ->required(),
             DateTime::make('Ended At')
-                ->displayUsing(fn ($value) => $value->timezone('Asia/Jakarta')->format('D M y G:i'))
+                ->displayUsing(fn ($value) => $value->format('D M y G:i'))
                 ->required(),
             HasMany::make('Tithes'),
         ];

@@ -11,4 +11,5 @@ enum TagType: string
     case INVENTORY_STATUS = 'inventory status';
     case FORM_TYPE = 'form type';
     case FEED_TYPE = 'feed type';
+    case FEED_TAGS = 'feed tags';
 }

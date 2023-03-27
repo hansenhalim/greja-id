@@ -15,8 +15,6 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         parent::boot();
 
-        Nova::userTimezone(fn () => 'Asia/Jakarta');
-
         Nova::serving(function () {
             \App\Models\Tenant::creating(function (\App\Models\Tenant $tenant) {
                 $tenant->ready = false;
