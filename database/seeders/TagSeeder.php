@@ -34,5 +34,9 @@ class TagSeeder extends Seeder
         Tag::findOrCreate('Volunteer', TagType::FORM_TYPE->value);
         Tag::findOrCreate('Baptism', TagType::FORM_TYPE->value);
         Tag::findOrCreate('Child Dedication', TagType::FORM_TYPE->value);
+
+        Tag::findOrCreate('REVIVE', TagType::FEED_TYPE->value);
+        Tag::findOrCreate('Bulletin', TagType::FEED_TYPE->value);
+        Tag::findOrCreate('Devotion', TagType::FEED_TYPE->value);
     }
 }

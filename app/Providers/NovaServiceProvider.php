@@ -82,6 +82,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             Nova::resources([
                 \App\Nova\Tenant\ChurchLocation::class,
                 \App\Nova\Tenant\ChurchService::class,
+                \App\Nova\Tenant\Feed::class,
                 \App\Nova\Tenant\Form::class,
                 \App\Nova\Tenant\Inventory::class,
                 \App\Nova\Tenant\Member::class,

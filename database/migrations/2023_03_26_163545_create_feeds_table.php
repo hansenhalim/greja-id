@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\FeedStatus;
 use App\Enums\VideoSource;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -18,11 +19,9 @@ return new class extends Migration
             $table->text('description');
             $table->string('title');
             $table->json('content');
+            $table->enum('status', array_column(FeedStatus::cases(), 'value'));
             $table->enum('video_source', array_column(VideoSource::cases(), 'value'));
             $table->string('youtube_video_id')->nullable();
-            $table->boolean('active');
-            $table->timestamp('published_at');
-            $table->timestamp('unpublished_at');
             $table->timestamps();
             $table->softDeletes();
         });

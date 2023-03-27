@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Enums\TagType;
 use App\Models\Feed;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,6 +14,14 @@ class FeedSeeder extends Seeder
      */
     public function run(): void
     {
-        Feed::factory(10)->create();
+        $feeds = Feed::factory(10)->create();
+
+        foreach ($feeds as $feed) {
+            $feed->attachTag(fake()->randomElement([
+                'REVIVE',
+                'Bulletin',
+                'Devotion',
+            ]), TagType::FEED_TYPE->value);
+        }
     }
 }
