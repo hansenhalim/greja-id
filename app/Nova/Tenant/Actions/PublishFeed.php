@@ -3,7 +3,6 @@
 namespace App\Nova\Tenant\Actions;
 
 use App\Enums\FeedStatus;
-use App\Models\Feed;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -21,7 +20,6 @@ class PublishFeed extends Action implements ShouldQueue
     /**
      * Perform the action on the given models.
      *
-     * @param  \Laravel\Nova\Fields\ActionFields  $fields
      * @param  \Illuminate\Support\Collection  $models
      * @return mixed
      */
@@ -42,7 +40,6 @@ class PublishFeed extends Action implements ShouldQueue
     /**
      * Get the fields available on the action.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function fields(NovaRequest $request)

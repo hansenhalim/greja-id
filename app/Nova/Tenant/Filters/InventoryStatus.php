@@ -4,7 +4,6 @@ namespace App\Nova\Tenant\Filters;
 
 use App\Enums\TagType;
 use App\Models\Tag;
-use Illuminate\Database\Eloquent\Builder;
 use Laravel\Nova\Filters\Filter;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -20,7 +19,6 @@ class InventoryStatus extends Filter
     /**
      * Apply the filter to the given query.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  mixed  $value
      * @return \Illuminate\Database\Eloquent\Builder
@@ -33,7 +31,6 @@ class InventoryStatus extends Filter
     /**
      * Get the filter's available options.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function options(NovaRequest $request)

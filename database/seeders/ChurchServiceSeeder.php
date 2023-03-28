@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Enums\TagType;
 use App\Models\ChurchLocation;
 use App\Models\ChurchService;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ChurchServiceSeeder extends Seeder

@@ -19,43 +19,43 @@ class FeedFactory extends Factory
     public function definition(): array
     {
         $content = [
-            "time" => 1679888080762,
-            "blocks" => [
+            'time' => 1679888080762,
+            'blocks' => [
                 [
-                    "id" => "PVFqs8qp1v",
-                    "data" => ["text" => fake()->sentence(3), "level" => 2],
-                    "type" => "header",
+                    'id' => 'PVFqs8qp1v',
+                    'data' => ['text' => fake()->sentence(3), 'level' => 2],
+                    'type' => 'header',
                 ],
                 [
-                    "id" => "M4C7lVC_rO",
-                    "data" => [
-                        "text" => fake()->paragraph(5),
+                    'id' => 'M4C7lVC_rO',
+                    'data' => [
+                        'text' => fake()->paragraph(5),
                     ],
-                    "type" => "paragraph",
+                    'type' => 'paragraph',
                 ],
                 [
-                    "id" => "X1-v2mtl24",
-                    "data" => [
-                        "text" => fake()->paragraph(5),
+                    'id' => 'X1-v2mtl24',
+                    'data' => [
+                        'text' => fake()->paragraph(5),
                     ],
-                    "type" => "paragraph",
+                    'type' => 'paragraph',
                 ],
                 [
-                    "id" => "uFPdMApJW5",
-                    "data" => [
-                        "text" => fake()->paragraph(5),
+                    'id' => 'uFPdMApJW5',
+                    'data' => [
+                        'text' => fake()->paragraph(5),
                     ],
-                    "type" => "paragraph",
+                    'type' => 'paragraph',
                 ],
                 [
-                    "id" => "5lobXaweWI",
-                    "data" => [
-                        "text" => fake()->paragraph(5),
+                    'id' => '5lobXaweWI',
+                    'data' => [
+                        'text' => fake()->paragraph(5),
                     ],
-                    "type" => "paragraph",
+                    'type' => 'paragraph',
                 ],
             ],
-            "version" => "2.25.0",
+            'version' => '2.25.0',
         ];
 
         return [

@@ -5,7 +5,6 @@ namespace App\Nova\Tenant;
 use App\Enums\TagType;
 use App\Nova\Resource;
 use Ebess\AdvancedNovaMediaLibrary\Fields\Files;
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Code;

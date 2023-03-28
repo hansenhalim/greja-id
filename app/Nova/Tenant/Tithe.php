@@ -4,7 +4,6 @@ namespace App\Nova\Tenant;
 
 use App\Enums\TagType;
 use App\Nova\Resource;
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Fields\ID;

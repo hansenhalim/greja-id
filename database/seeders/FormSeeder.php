@@ -4,8 +4,6 @@ namespace Database\Seeders;
 
 use App\Enums\TagType;
 use App\Models\Form;
-use App\Models\Member;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class FormSeeder extends Seeder

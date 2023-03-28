@@ -5,7 +5,6 @@ namespace App\Jobs;
 use App\Enums\FeedStatus;
 use App\Models\Feed;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
@@ -29,7 +28,7 @@ class PublishFeed implements ShouldQueue
     public function handle(): void
     {
         $this->feed->update([
-            'status' => FeedStatus::PUBLIC->value
+            'status' => FeedStatus::PUBLIC->value,
         ]);
     }
 }

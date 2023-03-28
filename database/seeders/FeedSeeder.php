@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Enums\TagType;
 use App\Models\Feed;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class FeedSeeder extends Seeder
