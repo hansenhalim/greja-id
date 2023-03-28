@@ -27,7 +27,7 @@ class FeedSeeder extends Seeder
                 'Iman',
                 'Kasih',
                 'Pengharapan',
-            ]), TagType::FEED_TAGS->value);
+            ], fake()->numberBetween(1, 3)), TagType::FEED_TAGS->value);
         }
     }
 }

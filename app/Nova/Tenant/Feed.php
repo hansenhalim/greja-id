@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\Status;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -64,13 +65,16 @@ class Feed extends Resource
                 ->required(),
             Select::make('Status')
                 ->options(array_column(FeedStatus::cases(), 'name', 'value'))
-                ->displayUsing(fn ($name) => ucfirst($name))
+                ->onlyOnForms()
                 ->required(),
+            Status::make('Status')
+                ->loadingWhen([])
+                ->failedWhen([FeedStatus::PRIVATE->value]),
             Text::make('Youtube Video Id'),
             Tags::make('Tags')
                 ->type(TagType::FEED_TAGS->value),
             DateTime::make('Published At')
-                ->onlyOnIndex()
+                ->exceptOnForms()
                 ->displayUsing(fn ($value) => $value ? $value->diffForHumans() : ''),
         ];
     }

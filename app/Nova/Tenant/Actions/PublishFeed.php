@@ -14,7 +14,7 @@ use Laravel\Nova\Fields\ActionFields;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class PublishFeed extends Action
+class PublishFeed extends Action implements ShouldQueue
 {
     use InteractsWithQueue, Queueable;
 
@@ -27,15 +27,15 @@ class PublishFeed extends Action
      */
     public function handle(ActionFields $fields, Collection $feeds)
     {
-        $publishAt = Carbon::parse($fields->publish_at);
+        $publishedAt = Carbon::parse($fields->published_at);
 
         foreach ($feeds as $feed) {
             $feed->update([
                 'status' => FeedStatus::PRIVATE->value,
-                'published_at' => $publishAt,
+                'published_at' => $publishedAt,
             ]);
 
-            \App\Jobs\PublishFeed::dispatch($feed)->delay($publishAt);
+            \App\Jobs\PublishFeed::dispatch($feed)->delay($publishedAt);
         }
     }
 
@@ -48,7 +48,7 @@ class PublishFeed extends Action
     public function fields(NovaRequest $request)
     {
         return [
-            DateTime::make('Publish At')->required(),
+            DateTime::make('Publish', 'published_at')->required(),
         ];
     }
 }
