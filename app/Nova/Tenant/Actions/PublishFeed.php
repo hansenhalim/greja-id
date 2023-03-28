@@ -2,7 +2,8 @@
 
 namespace App\Nova\Tenant\Actions;
 
-use App\Jobs\PublishFeed as JobsPublishFeed;
+use App\Enums\FeedStatus;
+use App\Models\Feed;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -26,10 +27,15 @@ class PublishFeed extends Action
      */
     public function handle(ActionFields $fields, Collection $feeds)
     {
-        $delay = Carbon::parse($fields->publish_at);
+        $publishAt = Carbon::parse($fields->publish_at);
 
         foreach ($feeds as $feed) {
-            JobsPublishFeed::dispatch($feed)->delay($delay);
+            $feed->update([
+                'status' => FeedStatus::PRIVATE->value,
+                'published_at' => $publishAt,
+            ]);
+
+            \App\Jobs\PublishFeed::dispatch($feed)->delay($publishAt);
         }
     }
 

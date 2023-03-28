@@ -2,7 +2,6 @@
 
 namespace App\Nova\Tenant\Filters;
 
-use App\Enums\FeedStatus as EnumsFeedStatus;
 use Laravel\Nova\Filters\Filter;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -36,6 +35,6 @@ class FeedStatus extends Filter
      */
     public function options(NovaRequest $request)
     {
-        return EnumsFeedStatus::cases();
+        return \App\Enums\FeedStatus::cases();
     }
 }

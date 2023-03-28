@@ -7,6 +7,7 @@ use App\Enums\FeedStatus;
 use App\Enums\TagType;
 use App\Nova\Resource;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
@@ -66,7 +67,11 @@ class Feed extends Resource
                 ->displayUsing(fn ($name) => ucfirst($name))
                 ->required(),
             Text::make('Youtube Video Id'),
-            Tags::make('Tags')->type(TagType::FEED_TAGS->value),
+            Tags::make('Tags')
+                ->type(TagType::FEED_TAGS->value),
+            DateTime::make('Published At')
+                ->onlyOnIndex()
+                ->displayUsing(fn ($value) => $value ? $value->diffForHumans() : ''),
         ];
     }
 
@@ -116,7 +121,6 @@ class Feed extends Resource
     {
         return [
             new Actions\PublishFeed,
-            new Actions\DraftFeed,
         ];
     }
 }

@@ -19,5 +19,6 @@ class Feed extends Model implements HasMedia
 
     protected $casts = [
         'content' => NovaEditorJsCast::class,
+        'published_at' => 'datetime',
     ];
 }

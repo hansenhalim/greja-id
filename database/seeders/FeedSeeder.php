@@ -22,6 +22,12 @@ class FeedSeeder extends Seeder
                 'Bulletin',
                 'Devotion',
             ]), TagType::FEED_TYPE->value);
+
+            $feed->attachTags(fake()->randomElements([
+                'Iman',
+                'Kasih',
+                'Pengharapan',
+            ]), TagType::FEED_TAGS->value);
         }
     }
 }

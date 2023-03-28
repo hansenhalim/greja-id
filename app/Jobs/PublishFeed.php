@@ -28,7 +28,8 @@ class PublishFeed implements ShouldQueue
      */
     public function handle(): void
     {
-        $this->feed->status = FeedStatus::PUBLISHED->value;
-        $this->feed->save();
+        $this->feed->update([
+            'status' => FeedStatus::PUBLIC->value
+        ]);
     }
 }

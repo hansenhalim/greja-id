@@ -4,6 +4,6 @@ namespace App\Enums;
 
 enum FeedStatus: string
 {
-    case DRAFT = 'draft';
-    case PUBLISHED = 'published';
+    case PUBLIC = 'public';
+    case PRIVATE = 'private';
 }
