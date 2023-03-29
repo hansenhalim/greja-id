@@ -6,7 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
-        "advoor/nova-editor-js": "^3.2",
+        "advoor/nova-editor-js": "dev-temporaryurl",
         "aws/aws-sdk-php": "^3.261",
         "ebess/advanced-nova-media-library": "^4.1",
         "fakerphp/faker": "^1.21",
@@ -83,6 +83,10 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "repositories": {
+        "nova-editor-js": {
+            "type": "vcs",
+            "url": "https://github.com/hansenhalim/nova-editor-js"
+        },
         "nova": {
             "type": "composer",
             "url": "https://nova.laravel.com"

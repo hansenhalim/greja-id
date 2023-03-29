@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd75ed45852256c226a8cdbe67411afd",
+    "content-hash": "7d5637c50af80b6c4c4fcc3af3f0554c",
     "packages": [
         {
             "name": "advoor/nova-editor-js",
-            "version": "v3.2.1",
+            "version": "dev-temporaryurl",
             "source": {
                 "type": "git",
-                "url": "https://github.com/advoor/nova-editor-js.git",
-                "reference": "932c31d027a06b25fd7a3d7dcab0802e93672143"
+                "url": "https://github.com/hansenhalim/nova-editor-js.git",
+                "reference": "19f85ed57a15e64cf7844eefbc8e7c2174660694"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/advoor/nova-editor-js/zipball/932c31d027a06b25fd7a3d7dcab0802e93672143",
-                "reference": "932c31d027a06b25fd7a3d7dcab0802e93672143",
+                "url": "https://api.github.com/repos/hansenhalim/nova-editor-js/zipball/19f85ed57a15e64cf7844eefbc8e7c2174660694",
+                "reference": "19f85ed57a15e64cf7844eefbc8e7c2174660694",
                 "shasum": ""
             },
             "require": {
@@ -48,7 +48,25 @@
                     "Advoor\\NovaEditorJs\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\": "tests"
+                },
+                "files": [
+                    "tests/helpers.php"
+                ]
+            },
+            "scripts": {
+                "test": [
+                    "phpunit"
+                ],
+                "lint": [
+                    "parallel-lint --exclude .git --exclude vendor ."
+                ],
+                "format": [
+                    "php-cs-fixer fix"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -61,10 +79,9 @@
                 "wysiwyg"
             ],
             "support": {
-                "issues": "https://github.com/advoor/nova-editor-js/issues",
-                "source": "https://github.com/advoor/nova-editor-js/tree/v3.2.1"
+                "source": "https://github.com/hansenhalim/nova-editor-js/tree/master"
             },
-            "time": "2023-03-07T16:29:28+00:00"
+            "time": "2023-03-29T03:15:18+00:00"
         },
         {
             "name": "aws/aws-crt-php",
@@ -12115,7 +12132,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "advoor/nova-editor-js": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
