@@ -22,6 +22,8 @@ class UpcomingMembersBirthday extends Table
             ->limit(3)
             ->get();
 
+        $metricTableRows = [];
+
         foreach ($members as $member) {
             $metricTableRows[] = MetricTableRow::make()
                 ->icon('cake')

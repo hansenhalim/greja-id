@@ -3,6 +3,7 @@
 namespace App\Nova\Tenant\Dashboards;
 
 use App\Nova\Tenant\Metrics\ActiveMembers;
+use App\Nova\Tenant\Metrics\DiskUsage;
 use App\Nova\Tenant\Metrics\MembersPerGender;
 use App\Nova\Tenant\Metrics\MembersPerMonth;
 use App\Nova\Tenant\Metrics\UpcomingMembersBirthday;
@@ -22,6 +23,7 @@ class Main extends Dashboard
             new MembersPerGender,
             new MembersPerMonth,
             new UpcomingMembersBirthday,
+            new DiskUsage,
         ];
     }
 }
