@@ -41,6 +41,10 @@ return [
             'shortcut' => 'CMD+SHIFT+I',
             'path' => 'public/images',
             'disk' => env('FILESYSTEM_DISK', 'public'),
+            'temporaryUrl' => [
+                'activated' => true,
+                'expiration' => 5, // in minutes
+            ],
             'alterations' => [
                 'resize' => [
                     'width' => false, // integer

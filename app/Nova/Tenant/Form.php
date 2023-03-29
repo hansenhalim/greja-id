@@ -41,7 +41,8 @@ class Form extends Resource
                 ->default(true)
                 ->required(),
             DateTime::make('Verified At'),
-            Files::make('Documents', 'documents'),
+            Files::make('Documents', 'documents')
+                ->temporary(now()->addMinutes(5)),
         ];
     }
 

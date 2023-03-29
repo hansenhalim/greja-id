@@ -101,7 +101,7 @@ return [
         'disks' => [
             'local',
             'public',
-            's3',
+            // 's3',
         ],
 
         /**
