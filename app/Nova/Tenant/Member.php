@@ -32,7 +32,7 @@ class Member extends Resource
                 ->sortable()
                 ->required(),
             Select::make('Gender')
-                ->options(array_column(Gender::cases(), 'name', 'value'))
+                ->options(array_column(Gender::cases(), 'value', 'value'))
                 ->displayUsing(fn ($name) => ucfirst($name))
                 ->required(),
             Text::make('Phone')

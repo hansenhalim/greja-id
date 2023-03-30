@@ -22,6 +22,7 @@ return new class extends Migration
             $table->enum('status', array_column(FeedStatus::cases(), 'value'));
             $table->enum('video_source', array_column(VideoSource::cases(), 'value'));
             $table->string('youtube_video_id')->nullable();
+            $table->string('video_url')->nullable();
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
             $table->softDeletes();

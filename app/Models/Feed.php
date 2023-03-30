@@ -22,4 +22,17 @@ class Feed extends Model implements HasMedia
         'content' => NovaEditorJsCast::class,
         'published_at' => 'datetime',
     ];
+
+    public function registerMediaCollections(): void
+    {
+        $this
+            ->addMediaCollection('cover')
+            ->acceptsMimeTypes(['image/jpeg'])
+            ->singleFile();
+
+        $this
+            ->addMediaCollection('video')
+            ->acceptsMimeTypes(['video/mp4'])
+            ->singleFile();
+    }
 }
