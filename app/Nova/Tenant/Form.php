@@ -53,7 +53,9 @@ class Form extends Resource
 
     public function filters(NovaRequest $request)
     {
-        return [];
+        return [
+            new Filters\FormType,
+        ];
     }
 
     public function lenses(NovaRequest $request)
