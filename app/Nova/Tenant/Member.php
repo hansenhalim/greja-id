@@ -23,12 +23,16 @@ class Member extends Resource
         'email',
     ];
 
+    public function subtitle()
+    {
+        return "Email: {$this->email}";
+    }
+
     public function fields(NovaRequest $request)
     {
         return [
             ID::make()->sortable(),
             Text::make('Name')
-                ->showWhenPeeking()
                 ->sortable()
                 ->required(),
             Select::make('Gender')
@@ -36,10 +40,8 @@ class Member extends Resource
                 ->displayUsing(fn ($name) => ucfirst($name))
                 ->required(),
             Text::make('Phone')
-                ->showWhenPeeking()
                 ->required(),
             Text::make('Email')
-                ->showWhenPeeking()
                 ->required(),
             Text::make('Address')
                 ->hideFromIndex()

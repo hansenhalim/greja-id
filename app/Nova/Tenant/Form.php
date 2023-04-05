@@ -10,6 +10,8 @@ use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Code;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Stack;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Spatie\TagsField\Tags;
 
@@ -32,8 +34,12 @@ class Form extends Resource
                 ->single()
                 ->sortable()
                 ->required(),
-            BelongsTo::make('Member')
-                ->searchable(),
+            BelongsTo::make('Member')->searchable()->onlyOnForms(),
+            Stack::make('Member', [
+                Text::make('member->name'),
+                Text::make('member->email'),
+                Text::make('member->phone'),
+            ]),
             Code::make('Content')
                 ->json()
                 ->required(),
